@@ -1,4 +1,3 @@
-
 /*
     Core logic/payment flow for this comes from here:
     https://stripe.com/docs/payments/accept-a-payment
@@ -26,8 +25,8 @@ var style = {
     }
 };
 var card = elements.create('card', {style: style});
-console.log('card', card)
 card.mount('#card-element');
+
 
 // Handle realtime validation errors on the card element
 card.addEventListener('change', function (event) {
