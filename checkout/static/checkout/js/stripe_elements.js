@@ -109,7 +109,6 @@ form.addEventListener('submit', function(ev) {
             } else {
                 if (result.paymentIntent.status === 'succeeded') {
                     form.submit();
-                    console.log(form, 'form')
                 }
             }
         });
