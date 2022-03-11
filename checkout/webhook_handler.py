@@ -74,6 +74,7 @@ class StripeWH_Handler:
 
         order_exists = False
         attempt = 1
+        # print('order exists - bag', bag)
         while attempt <= 5:
             try:
                 order = Order.objects.get(
@@ -90,11 +91,13 @@ class StripeWH_Handler:
                     original_bag=bag,
                     stripe_pid=pid,
                 )
+                # print(intent, 'order exists')
                 order_exists = True
                 break
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
+                # print(intent, 'order NOT here')
         if order_exists:
             self._send_confirmation_email(order)
             return HttpResponse(
