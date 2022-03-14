@@ -30,10 +30,10 @@ SECRET_KEY = 'django-insecure-f@u(0m$zzy6mo*ehsa231_09cb5wr#@p0hvlrj$5(*6@qw%m+d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['boutique-ado-ewan.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['boutique-ado-ewan.herokuapp.com/', 'localhost']
 
 
-# Application definition
+# Application definition 
 
 INSTALLED_APPS = [
     'django.contrib.admin',
