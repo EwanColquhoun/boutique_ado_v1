@@ -26,12 +26,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
+# SECRET_KEY = 'np$mfgf_^r=1b9@x-pka7%t6#4dj8uci(##6i1%!)@)par4p_+'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+# DEBUG = False
+DEBUG = 'DEVELOPMENT' in os.environ == True
 
 ALLOWED_HOSTS = ['boutique-ado-ewan.herokuapp.com', 'localhost']
-
 
 # Application definition 
 
@@ -123,10 +125,12 @@ WSGI_APPLICATION = 'boutique_ado.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 if 'DATABASE_URL' in os.environ:
+    print('prod')
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 else:
+    print('dev')
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -177,6 +181,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 if 'USE_AWS' in os.environ:
     # cache control
