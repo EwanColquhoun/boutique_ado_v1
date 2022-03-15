@@ -30,8 +30,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False
-DEBUG = 'DEVELOPMENT' in os.environ == True
+# DEBUG = True
+DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['boutique-ado-ewan.herokuapp.com', 'localhost']
 
@@ -125,12 +125,10 @@ WSGI_APPLICATION = 'boutique_ado.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 if 'DATABASE_URL' in os.environ:
-    print('prod')
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 else:
-    print('dev')
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
